@@ -5,6 +5,8 @@ import Input from './Input'
 import axios from 'axios'
 import { UserContext } from './UserContext'
 
+// this chat page components which contains message box and input fields
+
 const Chat = ({username,friend,usernameid,friendid ,setclickfunction}) => {
 
   let value = useContext(UserContext);
@@ -13,6 +15,8 @@ const Chat = ({username,friend,usernameid,friendid ,setclickfunction}) => {
 
   const [message, setinput] = useState("");
 
+
+// handling smooth scroll view when user is messaged
 
   const scrollRef = useRef();
 
@@ -25,7 +29,7 @@ const Chat = ({username,friend,usernameid,friendid ,setclickfunction}) => {
   }
 
 
-
+// useEffect for getting messages from db
 
   useEffect(() => {
    try{
@@ -35,6 +39,7 @@ const Chat = ({username,friend,usernameid,friendid ,setclickfunction}) => {
         if(res.data === "new"){
           getmessage([]);
         }
+        // senting all data from user and friend and then filter on client
         else {
           const result = res.data.filter((mes)=>{
               return ((mes.friend === friendid && mes.username === usernameid) || (mes.friend === usernameid && mes.username === friendid) )  ;
@@ -49,7 +54,7 @@ const Chat = ({username,friend,usernameid,friendid ,setclickfunction}) => {
    }
   },[friend,message])
   
-
+  // adding the friend to db
   function addfriendtodb() {
   setclickfunction(()=>{
     return value += 1;

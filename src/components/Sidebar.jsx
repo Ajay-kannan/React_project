@@ -3,6 +3,8 @@ import '../App.css'
 import Navbar from './Navbar'
 import Search from './Search'
 import Chats from './Chats'
+
+// left sidebar 
 const Sidebar = ({username,showFriend,usernameid,firstfriend}) => {
  
   return (

@@ -3,7 +3,7 @@ import '../App.css'
 import axios from "axios";
 import { UserContext } from './UserContext';
 
-
+// sidebar of program , contain user friend list card
 const Chatfriends = ({users , showFriend}) => {
   return(
     <React.Fragment>
@@ -18,6 +18,8 @@ const Chatfriends = ({users , showFriend}) => {
 const Chats = ({showFriend,usernameid,firstfriend}) => {
 
   const value = useContext(UserContext);
+
+  // getting the user friend list from db
 
   useEffect(()=>{
     async function func(){

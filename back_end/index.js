@@ -3,10 +3,9 @@ const app = express();
 const cors = require("cors")
 const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
-const { MongoClient, ServerApiVersion } = require('mongodb');
 const path = require("path")
 
-
+// connecting to mongodb atlas
 const uri = "mongodb+srv://ajay:chatapppassword@chat-app.osqbmur.mongodb.net/chatapp?retryWrites=true&w=majority";
 
 const connectionParams = {
@@ -23,6 +22,8 @@ mongoose.connect(uri, connectionParams)
    });
 
 
+// database model to store data
+
 const User = require("./model/user");
 const Userlist = require("./model/userlist");
 const Userchat = require("./model/userchat");
@@ -31,6 +32,8 @@ const Userfriend = require("./model/userfriend");
 app.use(express.urlencoded({extended : true}));
 app.use(express.json())
 app.use(cors())
+
+// routes for get data from client
 
 app.post("/register" ,cors(), async (req,res) => {
    

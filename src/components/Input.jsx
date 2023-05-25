@@ -1,6 +1,8 @@
 import React  from 'react'
 const Input = ({ handleChange, message ,handleSubmit}) => {
 
+  // getting input from user
+
   return (
     <div >
      <form onSubmit={handleSubmit} className='input'>

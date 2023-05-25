@@ -8,6 +8,8 @@ const Protected = ({friend,friendid,showFriend,firstfriend}) => {
 
   const [addfriendclick , getaddfriendclick] = useState(0);
 
+  // get the instance of addfriend button from user
+
   function setclickfunction(value)
   {
     getaddfriendclick(value);
@@ -16,6 +18,7 @@ const Protected = ({friend,friendid,showFriend,firstfriend}) => {
   let location = useLocation();
   let username;
   let usernameid;
+  // when user log by login or register will get in or catch by err and redirect to login page
   try{
     username = location.state.username;
     usernameid = location.state.id;
@@ -36,6 +39,9 @@ const Protected = ({friend,friendid,showFriend,firstfriend}) => {
 const Home = () => {
   const [friend , getfriend] = useState("");
   const [friendid , getfriendid] = useState("");
+
+// just getting and setting user, friend
+
   function showFriend (friend,userid) {
     getfriend(friend);
     getfriendid(userid)

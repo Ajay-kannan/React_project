@@ -1,5 +1,7 @@
 import React from 'react'
 
+// show the individual message components
+
 const Message = ({message,sender,username,date,time}) => {
   const style = sender === username ? "owner" : "messages";
   return (

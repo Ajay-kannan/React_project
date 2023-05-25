@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
+// showing the search result to render the search input changed
 
  const Searchresult = ({result,showFriend , handleChange}) => {
  
@@ -12,7 +13,6 @@ import React, { useState } from 'react'
          showFriend(result.name,result.userid);
          handleChange("");
       }}>
-        {/* <img src="https://images.pexels.com/photos/11432837/pexels-photo-11432837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
         <span>{result.name}</span>
          </div>
        
@@ -26,6 +26,9 @@ import React, { useState } from 'react'
 const Search = ({showFriend ,username}) => {
   const [input, setInput] = useState("");
   const [result ,setResult] = useState([]);
+
+// search field from user and fetch from db every time we make changes and filter
+
   const fetchdata = async(value) => {
     try{
      await axios.post('http://localhost:8080/getuser')
